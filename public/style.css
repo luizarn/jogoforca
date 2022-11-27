@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
     font-family: "Roboto", sans-serif;
@@ -20,15 +20,16 @@ body {
 .container {
     display: flex;
     justify-content: space-between;
-
 }
 
-.forca {
+.forca img{
     width: 400px;
     height: 466.67px;
-    background: url("img/forca0.png");
-    background-size: cover;
+    /* background: url("img/forca0.png"); */
+    /* background-size: cover; */
 }
+
+
 
 .escolherPalavra {
     width: 200px;
@@ -46,26 +47,33 @@ body {
     line-height: 23px;
 }
 
-.escolherPalavra p {
+.container-direita {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.palavra {
+    margin-top: 460px;
+    font-family: 'Noto Sans';
+    font-style: normal;
     font-weight: 700;
-    font-size: 20px;
-    color: white;
-    line-height: 23px;
-    /* align-items: center;
-    text-align: center; */
+    font-size: 60px;
+    line-height: 68px;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 .container-principal .letras {
-
     line-height: 19px;
     display: flex;
     justify-content: space-around;
-
     margin: auto;
-
     width: 716px;
     height: 91px;
     flex-wrap: wrap;
+    margin-top: 70.33px;
 }
 
 .letra {
@@ -110,19 +118,19 @@ body {
     margin-right: 12px;
 }
 
-.botaoChutar{
+.botaoChutar {
     width: 100px;
-height: 40px;
+    height: 40px;
 
-background: #E1ECF4;
-border: 1px solid #7AA7C7;
-border-radius: 3px;
-font-weight: 700;
-font-size: 16px;
-line-height: 19px;
-display: flex;
-justify-content: center;
-align-items: center;
-color: #3C76A1;
-margin-left: 15px;
+    background: #E1ECF4;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3C76A1;
+    margin-left: 15px;
 }
