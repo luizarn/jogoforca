@@ -5,6 +5,7 @@ export default function Letras({ alfabeto, clicarLetra, letraClicada, desativado
             {alfabeto.map((l, index) => <button disabled=
                 {(letraClicada.includes(l)) || (desativado === true) || (qtdeErros === 6) ? true : false}
                 onClick={() => clicarLetra(l)}
+                data-test="letter"
                 className={`${desativado === true || letraClicada.includes(l) ? "letra" : "habilitada"}`}
                 key={index}> {l.toUpperCase()} </button>)}
         </div>
