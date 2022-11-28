@@ -1,5 +1,5 @@
 
-export default function Jogo({ renderPalavra, iniciarJogo, imagemForca }) {
+export default function Jogo({ renderPalavra, iniciarJogo, imagemForca, corLetra, palavraChute}) {
 
 
     return (
@@ -9,8 +9,9 @@ export default function Jogo({ renderPalavra, iniciarJogo, imagemForca }) {
 
                 <div className="container-direita">
                     <div className="escolherPalavra" onClick={() => iniciarJogo()}>Escolher Palavra</div>
-                    <div className="palavra">
+                    <div className={`palavra ${corLetra}`}>
                         {renderPalavra}
+                       {palavraChute !== null ? palavraChute.map((i) => i) : false}
                     </div>
 
                 </div>
@@ -18,6 +19,5 @@ export default function Jogo({ renderPalavra, iniciarJogo, imagemForca }) {
         </>
     )
 }
-
 
 
