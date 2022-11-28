@@ -22,10 +22,10 @@ function App() {
 
   const renderPalavra = palavraEscolhida.map((l, index) => letraClicada.includes(palavraEscolhida[index]) ? l : " _")
   console.log(palavraEscolhida)
-
+  const palavraAleatoria = palavras[Math.floor(Math.random() * palavras.length)];
  
   function iniciarJogo() {
-    const palavraAleatoria = palavras[Math.floor(Math.random() * palavras.length)];
+   
     // console.log(palavraAleatoria)
     const arrayPalavra = [...palavraAleatoria];
     setpalavraEscolhida(arrayPalavra)
@@ -107,7 +107,7 @@ function jogadorPerdeu(){
           imagemForca={imagemForca}
           corLetra={corLetra}
           palavraChute={palavraChute}
-          palavraEscolhida={palavraEscolhida}
+          palavraAleatoria={palavraAleatoria}
         />
 
         <Letras
