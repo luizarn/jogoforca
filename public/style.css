@@ -22,7 +22,7 @@ body {
     justify-content: space-between;
 }
 
-.forca img{
+.forca img {
     width: 400px;
     height: 466.67px;
     /* background: url("img/forca0.png"); */
@@ -52,12 +52,15 @@ body {
     flex-direction: column;
     align-items: flex-end;
 }
- .correta{
-    color: #27AE60;  
+
+.correta {
+    color: #27AE60;
 }
-.incorreta{
+
+.incorreta {
     color: #FF0000;
 }
+
 
 .palavra {
     margin-top: 460px;
@@ -84,6 +87,21 @@ body {
     margin-top: 70.33px;
 }
 
+.habilitada {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    color: #39739D;
+    background-color: #E1ECF4;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
+    margin-left: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
 .letra {
     display: flex;
     width: 40px;
@@ -95,8 +113,6 @@ body {
     font-weight: 700;
     font-size: 16px;
     color: #798A9F;
-    /* align-items: center;
-    text-align: center; */
     justify-content: center;
     align-items: center;
 }

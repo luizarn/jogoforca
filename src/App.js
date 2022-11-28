@@ -4,8 +4,7 @@ import Jogo from "./components/Jogo"
 import Letras from "./components/Letras";
 import palavras from "./palavras";
 import { useState } from "react"
-// import { render } from "@testing-library/react";
-// import { render } from "@testing-library/react";
+
 
 
 function App() {
@@ -15,36 +14,35 @@ function App() {
   const [palavraEscolhida, setpalavraEscolhida] = useState([])
   const [letraClicada, setletraClicada] = useState([])
   const [qtdeErros, setqtdeErros] = useState(0)
-  // const [qtdeAcertos, setqtdeAcertos] = useState(0)
   const [imagemForca, setimagemForca] = useState("img/forca0.png")
   const [corLetra, setcorLetra] = useState("")
   let [tentativa, setTentativa] = useState("")
   const [palavraChute, setPalavraChute] = useState(null)
+ 
 
   const renderPalavra = palavraEscolhida.map((l, index) => letraClicada.includes(palavraEscolhida[index]) ? l : " _")
-  // console.log(renderPalavra)
-  // console.log(palavraEscolhida)
+  console.log(palavraEscolhida)
 
-
-
+ 
   function iniciarJogo() {
     const palavraAleatoria = palavras[Math.floor(Math.random() * palavras.length)];
     // console.log(palavraAleatoria)
     const arrayPalavra = [...palavraAleatoria];
     setpalavraEscolhida(arrayPalavra)
     setDesativado(false)
+    setTentativa("")
+    setcorLetra("")
+    setPalavraChute(null)
+    setimagemForca("img/forca0.png")
+    setqtdeErros(0)
+    setletraClicada([])
   }
 
 
   function clicarLetra(caracter) {
     const novoarray = [...letraClicada, caracter]
     setletraClicada(novoarray)
-   
-    // console.log(novoarray)
-    if(!renderPalavra.includes(" _")){
-      setcorLetra("correta")
   
-    }
 
     if (!palavraEscolhida.includes(caracter)) {
       let errosAtual = qtdeErros + 1
@@ -61,47 +59,43 @@ function App() {
       } else if (errosAtual === 5) {
         setimagemForca("img/forca5.png")
       } else if (errosAtual === 6) {
-        setimagemForca("img/forca6.png")
-        // setcorLetra("incorreta")
+        jogadorPerdeu()
       }
-    } else {
-      // let acertosAtual = qtdeAcertos + 1
-      // setqtdeAcertos(acertosAtual)
-      // console.log(acertosAtual)
+    }
+  }
 
 
-  }
-    ganharJogo()
-    
-  }
-  function ganharJogo(){
-    const escolhida = palavraEscolhida.join("")
-    const renderizada = [...renderPalavra]
-    const render = renderizada.join("")
-    console.log(escolhida)
-    console.log(render)
-    if (escolhida === render){
-      alert("ganhou")
-      console.log(renderPalavra)
-      console.log(palavraEscolhida)
-   }
-  }
+  if (desativado === false){
+    if(renderPalavra.join("") === palavraEscolhida.join("")){
+      jogadorGanhou()
+    }
+ }
+ 
 
  function chutarPalavra() {
 const palavra = palavraEscolhida.join("")
 if(tentativa === palavra){
-  setpalavraEscolhida([])
-  setPalavraChute([...palavraEscolhida])
-  setcorLetra("correta")
+ jogadorGanhou()
 } else{
-  setpalavraEscolhida([])
-  setPalavraChute([...palavraEscolhida])
-  setcorLetra("incorreta")
-  setimagemForca("img/forca6.png")
+  jogadorPerdeu()
 }
  }
 
+function jogadorGanhou(){
+  setPalavraChute([...palavraEscolhida])
+  setpalavraEscolhida([])
+  setcorLetra("correta")
+  setDesativado(true)
+}
 
+function jogadorPerdeu(){
+  setPalavraChute([...palavraEscolhida])
+  setpalavraEscolhida([])
+  setcorLetra("incorreta")
+  setimagemForca("img/forca6.png")
+  setDesativado(true)
+
+}
  
 
   return (
@@ -113,8 +107,9 @@ if(tentativa === palavra){
           imagemForca={imagemForca}
           corLetra={corLetra}
           palavraChute={palavraChute}
-        // verificar={verificar}
+          palavraEscolhida={palavraEscolhida}
         />
+
         <Letras
           alfabeto={alfabeto}
           clicarLetra={clicarLetra}
@@ -122,8 +117,8 @@ if(tentativa === palavra){
           letraClicada={letraClicada}
           desativado={desativado}
           qtdeErros={qtdeErros}
-
         />
+
         <Chute
           desativado={desativado}
           setTentativa={setTentativa}
